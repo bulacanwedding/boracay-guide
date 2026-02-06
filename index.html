@@ -38,13 +38,13 @@
       border-bottom: 1px solid var(--line);
     }
 
-    .topbar{
+.topbar{
   max-width: var(--max);
   margin: 0 auto;
-  padding: 12px 16px 8px;
+  padding: 10px 16px 6px;
   display:flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 6px;
 }
 
 
@@ -59,25 +59,7 @@
       font-size: 12px;
     }
 
-    .search{
-      display:flex;
-      align-items:center;
-      gap:8px;
-      padding: 10px 12px;
-      background: rgba(255,255,255,.75);
-      border:1px solid var(--line);
-      border-radius: 999px;
-      min-width: min(360px, 68vw);
-      box-shadow: 0 2px 10px rgba(0,0,0,.03);
-    }
-    .search input{
-      width:100%;
-      border:0;
-      outline:none;
-      background:transparent;
-      font-size: 14px;
-      color: var(--text);
-    }
+ 
 
     nav{
   max-width: var(--max);
@@ -271,9 +253,7 @@ nav::-webkit-scrollbar{ display:none; }
       .grid{ grid-template-columns: 1fr 1fr; }
       .hero img{ aspect-ratio: 16 / 6; }
       .banner{ aspect-ratio: 16 / 5; }
-      .search{
-  width: 100%;
-}
+    
 
     /* Search results (hides entire sections if no visible cards inside) */
     .hidden{ display:none !important; }
@@ -288,9 +268,7 @@ nav::-webkit-scrollbar{ display:none; }
 </div>
 
 
-    <div class="search" role="search" aria-label="Search">
-      🔎 <input id="q" type="search" placeholder="Search: beach, snorkeling, ATV, D’Mall…" autocomplete="off" />
-    </div>
+    
   </div>
 
   <nav aria-label="Sections">
@@ -654,36 +632,7 @@ nav::-webkit-scrollbar{ display:none; }
   document.getElementById("updated").textContent =
     new Date().toLocaleDateString(undefined, { year:"numeric", month:"long", day:"numeric" });
 
-  // Search: hides cards + whole sections when empty
-  const q = document.getElementById("q");
-  const sections = Array.from(document.querySelectorAll("[data-section]"));
 
-  function applySearch() {
-    const term = q.value.trim().toLowerCase();
-
-    sections.forEach(section => {
-      const cards = Array.from(section.querySelectorAll("[data-card], [data-card] *")).length
-        ? Array.from(section.querySelectorAll("[data-card]"))
-        : [];
-
-      // If no cards in section (overview), search against innerText
-      if (cards.length === 0) {
-        const text = section.innerText.toLowerCase();
-        section.classList.toggle("hidden", term && !text.includes(term));
-        return;
-      }
-
-      let anyVisible = false;
-      cards.forEach(card => {
-        const text = ((card.getAttribute("data-text") || "") + " " + card.innerText).toLowerCase();
-        const show = !term || text.includes(term);
-        card.classList.toggle("hidden", !show);
-        if (show) anyVisible = true;
-      });
-
-      section.classList.toggle("hidden", !!term && !anyVisible);
-    });
-  }
 
   q.addEventListener("input", applySearch);
 </script>
