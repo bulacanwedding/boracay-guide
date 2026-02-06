@@ -183,6 +183,27 @@ nav::-webkit-scrollbar{ display:none; }
       display:block;
       aspect-ratio: 16 / 6;
       object-fit: cover;
+    /* Fine-tune banner crops per section (mobile-friendly) */
+
+/* Beaches – show more bottom */
+#beaches .banner{
+  object-position: center 65%;
+}
+
+/* Spa – show more bottom */
+#spas .banner{
+  object-position: center 70%;
+}
+
+/* Underwater excursions – show more top */
+#underwater .banner{
+  object-position: center 35%;
+}
+
+/* E-trike / Transportation – show more top */
+#transportation .banner{
+  object-position: center 30%;
+}
     }
 
     .content{
