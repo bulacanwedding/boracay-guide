@@ -80,13 +80,25 @@
     }
 
     nav{
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 0 16px 12px;
-      display:flex;
-      gap:8px;
-      flex-wrap:wrap;
-    }
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 16px 10px;
+
+  display: flex;
+  gap: 8px;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  scroll-snap-type: x mandatory;
+
+  position: relative;
+}
+nav::-webkit-scrollbar{ display:none; }
+
     nav a{
       text-decoration:none;
       font-size: 13px;
@@ -96,6 +108,9 @@
       border: 1px solid var(--line);
       background: rgba(255,255,255,.60);
       white-space: nowrap;
+
+      flex: 0 0 auto;
+      scroll-snap-align: start;
     }
     nav a:hover{ border-color: #d7d0c6; }
 
