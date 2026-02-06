@@ -3,67 +3,599 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Island Guide</title>
+  <title>Boracay Travel Guide</title>
+  <meta name="description" content="Destination wedding Boracay travel guide: beaches, activities, spas, food, shopping, and services." />
+
   <style>
-    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 0; background:#fff; color:#111; }
-    header { padding: 20px 18px 8px; position: sticky; top: 0; background: rgba(255,255,255,.92); backdrop-filter: blur(8px); border-bottom: 1px solid #eee; }
-    h1 { margin: 0; font-size: 22px; }
-    p.sub { margin: 6px 0 10px; color:#555; font-size: 14px; }
-    .wrap { padding: 14px 18px 40px; max-width: 720px; margin: 0 auto; }
-    .section { margin: 18px 0 10px; }
-    .section h2 { font-size: 16px; margin: 0 0 8px; color:#333; letter-spacing: .2px; }
-    .card { border: 1px solid #eee; border-radius: 14px; padding: 14px; margin: 10px 0; box-shadow: 0 1px 0 rgba(0,0,0,.02); }
-    .card h3 { margin: 0 0 6px; font-size: 15px; }
-    .card p { margin: 0 0 10px; font-size: 14px; color:#555; line-height: 1.35; }
-    .btnrow { display: flex; gap: 10px; flex-wrap: wrap; }
-    a.btn { display: inline-block; padding: 10px 12px; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 14px; border: 1px solid #111; color:#111; }
-    a.btn.primary { background:#111; color:#fff; }
-    .note { margin-top: 18px; font-size: 12px; color:#666; }
+    :root{
+      --bg: #fbfaf8;
+      --card: #ffffff;
+      --text: #1a1a1a;
+      --muted: #6b6b6b;
+      --line: #e9e4dc;
+      --shadow: 0 10px 30px rgba(0,0,0,.06);
+      --radius: 18px;
+      --max: 920px;
+    }
+
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.45;
+    }
+
+    /* Sticky Header */
+    header{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(10px);
+      background: rgba(251,250,248,.85);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .topbar{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 14px 16px 10px;
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 12px;
+    }
+
+    .brand h1{
+      margin:0;
+      font-size: 18px;
+      letter-spacing: .2px;
+    }
+    .brand p{
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .search{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      padding: 10px 12px;
+      background: rgba(255,255,255,.75);
+      border:1px solid var(--line);
+      border-radius: 999px;
+      min-width: min(360px, 68vw);
+      box-shadow: 0 2px 10px rgba(0,0,0,.03);
+    }
+    .search input{
+      width:100%;
+      border:0;
+      outline:none;
+      background:transparent;
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    nav{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 16px 12px;
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+    nav a{
+      text-decoration:none;
+      font-size: 13px;
+      color: var(--text);
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.60);
+      white-space: nowrap;
+    }
+    nav a:hover{ border-color: #d7d0c6; }
+
+    /* Layout */
+    main{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 18px 16px 60px;
+    }
+
+    .hero{
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.70);
+      border-radius: calc(var(--radius) + 6px);
+      overflow:hidden;
+      box-shadow: var(--shadow);
+      margin-top: 6px;
+    }
+    .hero img{
+      width:100%;
+      display:block;
+      aspect-ratio: 16 / 7;
+      object-fit: cover;
+    }
+    .herobody{
+      padding: 16px 16px 18px;
+    }
+    .herobody h2{
+      margin:0 0 6px;
+      font-size: 20px;
+      letter-spacing: .2px;
+    }
+    .herobody p{
+      margin:0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .section{
+      margin-top: 26px;
+    }
+    .sectionhead{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .sectionhead h3{
+      margin:0;
+      font-size: 16px;
+      letter-spacing: .2px;
+    }
+    .sectionhead .hint{
+      margin:0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .block{
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.70);
+      border-radius: var(--radius);
+      overflow:hidden;
+      box-shadow: 0 3px 14px rgba(0,0,0,.04);
+    }
+
+    .banner{
+      width:100%;
+      display:block;
+      aspect-ratio: 16 / 6;
+      object-fit: cover;
+    }
+
+    .content{
+      padding: 14px 14px 12px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .card{
+      border: 1px solid var(--line);
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 14px 14px 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.04);
+    }
+    .card h4{
+      margin:0 0 6px;
+      font-size: 15px;
+    }
+    .card p{
+      margin:0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.35;
+    }
+
+    ul.clean{
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    ul.clean li{ margin: 6px 0; }
+
+    .note{
+      margin-top: 12px;
+      border: 1px dashed #e1d7ca;
+      background: rgba(255,255,255,.65);
+      border-radius: var(--radius);
+      padding: 12px 14px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .divider{
+      height:1px;
+      background: var(--line);
+      margin: 12px 0;
+    }
+
+    footer{
+      margin-top: 28px;
+      text-align:center;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* Desktop */
+    @media (min-width: 820px){
+      .grid{ grid-template-columns: 1fr 1fr; }
+      .hero img{ aspect-ratio: 16 / 6; }
+      .banner{ aspect-ratio: 16 / 5; }
+      .search{ min-width: 420px; }
+    }
+
+    /* Search results (hides entire sections if no visible cards inside) */
+    .hidden{ display:none !important; }
   </style>
 </head>
+
 <body>
-  <header>
-    <h1>🌴 Island Guide</h1>
-    <p class="sub">Tap to book instantly. (Best viewed on mobile.)</p>
-  </header>
-
-  <div class="wrap">
-
-    <div class="section">
-      <h2>⭐ Top Picks</h2>
-
-      <div class="card">
-        <h3>⛵ Sunset Paraw Sailing</h3>
-        <p>Classic Boracay sunset experience.</p>
-        <div class="btnrow">
-          <a class="btn primary" href="https://example.com/booking-link" target="_blank" rel="noopener">Book</a>
-          <a class="btn" href="https://maps.google.com/?q=Station+1+Boracay" target="_blank" rel="noopener">Map</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <h3>🤿 Island Hopping + Snorkeling</h3>
-        <p>Great for groups—half-day adventure.</p>
-        <div class="btnrow">
-          <a class="btn primary" href="https://example.com/booking-link-2" target="_blank" rel="noopener">Book</a>
-        </div>
-      </div>
+<header>
+  <div class="topbar">
+    <div class="brand">
+      <h1>Boracay Travel Guide</h1>
+      <p>Beaches • Excursions • Spas • Food • Shopping • Services</p>
     </div>
 
-    <div class="section">
-      <h2>🍽 Food & Drinks</h2>
-
-      <div class="card">
-        <h3>🍹 Sunset Drinks Spot</h3>
-        <p>Perfect for golden hour photos.</p>
-        <div class="btnrow">
-          <a class="btn primary" href="https://example.com/reservation-link" target="_blank" rel="noopener">Reserve</a>
-          <a class="btn" href="https://maps.google.com/?q=Boracay" target="_blank" rel="noopener">Map</a>
-        </div>
-      </div>
+    <div class="search" role="search" aria-label="Search">
+      🔎 <input id="q" type="search" placeholder="Search: beach, snorkeling, ATV, D’Mall…" autocomplete="off" />
     </div>
-
-    <p class="note">Tip: If a booking link is sold out, try another provider or ask the hotel concierge.</p>
   </div>
+
+  <nav aria-label="Sections">
+    <a href="#overview">Overview</a>
+    <a href="#beaches">Beaches</a>
+    <a href="#underwater">Underwater</a>
+    <a href="#above-water">Above Water</a>
+    <a href="#land">Land</a>
+    <a href="#island-hopping">Island Hopping</a>
+    <a href="#spas">Spas</a>
+    <a href="#food">Food & Drink</a>
+    <a href="#shopping">Shopping</a>
+    <a href="#services">Services</a>
+  </nav>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" id="overview" data-section>
+    <img src="hero.png" alt="Boracay beach" onerror="this.style.display='none';" />
+    <div class="herobody">
+      <h2>Welcome to Boracay ✨</h2>
+      <p>Scroll for the best beaches, activities, and helpful tips for your time on the island.</p>
+
+      <div class="divider"></div>
+
+      <div class="sectionhead" style="margin-bottom:6px;">
+        <h3 style="font-size:15px;margin:0;">What is there to do in Boracay?</h3>
+      </div>
+      <p style="margin:0;color:var(--muted);font-size:14px;">
+        White Beach Boracay is divided into 3 Stations. It can take 10–15 minutes to walk between stations if you walk along the beach, or a 5–10 minute e-trike drive.
+      </p>
+
+      <ul class="clean">
+        <li><strong>Station 1:</strong> luxury resorts, pristine beaches, restaurants</li>
+        <li><strong>Station 2:</strong> mid-range hotels, restaurants, nightlife, D’Mall shopping center</li>
+        <li><strong>Station 3:</strong> affordable accommodations, nature, tranquil</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- BEACHES -->
+  <section class="section" id="beaches" data-section>
+    <div class="sectionhead">
+      <h3>🏖 The Beaches</h3>
+      <p class="hint">Boracay has 17 beaches</p>
+    </div>
+
+    <div class="block">
+      <img class="banner" src="beach.png" alt="Boracay beach" onerror="this.style.display='none';" />
+      <div class="content">
+        <p style="margin:0;color:var(--muted);font-size:14px;">
+          Enjoy the white powdery sands and crystal blue water. Some of the more popular beaches:
+        </p>
+
+        <div class="grid" style="margin-top:12px;">
+          <article class="card" data-card data-text="white beach main beach sunsets activities establishments">
+            <h4>White Beach</h4>
+            <p>Main beach, many activities and establishments, perfect for watching sunsets.</p>
+          </article>
+          <article class="card" data-card data-text="diniwid beach serene no water sports relaxing">
+            <h4>Diniwid Beach</h4>
+            <p>Serene, no water sports, relaxing.</p>
+          </article>
+          <article class="card" data-card data-text="puka beach white sand coral unique shells">
+            <h4>Puka Beach</h4>
+            <p>White sand shore with sprinkles of coral and unique shells.</p>
+          </article>
+          <article class="card" data-card data-text="bulabog beach wind strong currents wind surfing kite surfing">
+            <h4>Bulabog Beach</h4>
+            <p>Wind and strong currents—great for wind surfing and kite surfing.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UNDERWATER -->
+  <section class="section" id="underwater" data-section>
+    <div class="sectionhead">
+      <h3>🤿 Underwater Excursions</h3>
+      <p class="hint">Dive + snorkel options</p>
+    </div>
+
+    <div class="block">
+      <img class="banner" src="underwater.png" alt="Underwater diving" onerror="this.style.display='none';" />
+      <div class="content">
+        <div class="grid">
+          <article class="card" data-card data-text="helmet diving walk freely sea floor constant air supply">
+            <h4>Helmet Diving</h4>
+            <p>Helmet provides constant air supply while you can walk freely on the sea floor.</p>
+          </article>
+          <article class="card" data-card data-text="scuba diving guided PADI certified divemaster">
+            <h4>Scuba Diving</h4>
+            <p>Guided by a PADI-certified divemaster.</p>
+          </article>
+          <article class="card" data-card data-text="free diving no breathing apparatus">
+            <h4>Free Diving</h4>
+            <p>No breathing apparatus.</p>
+          </article>
+          <article class="card" data-card data-text="snorkeling crocodile island puka beach angel point best spots">
+            <h4>Snorkeling</h4>
+            <p>Best spots at Crocodile Island, Puka Beach, and Angel Point.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOVE WATER -->
+  <section class="section" id="above-water" data-section>
+    <div class="sectionhead">
+      <h3>🚤 Above Water Excursions</h3>
+      <p class="hint">Water sports + cruises</p>
+    </div>
+
+    <div class="block">
+      <img class="banner" src="above-water.png" alt="Above-water activity" onerror="this.style.display='none';" />
+      <div class="content">
+        <div class="grid">
+          <article class="card" data-card data-text="kite surfing kitesurfing">
+            <h4>Kite Surfing</h4><p></p>
+          </article>
+          <article class="card" data-card data-text="jet skiing jet ski">
+            <h4>Jet Skiing</h4><p></p>
+          </article>
+          <article class="card" data-card data-text="stand up paddle boarding SUP paddleboard">
+            <h4>Stand Up Paddle Boarding</h4><p></p>
+          </article>
+          <article class="card" data-card data-text="wakeboarding wakeboard">
+            <h4>Wakeboarding</h4><p></p>
+          </article>
+          <article class="card" data-card data-text="crystal kayaking kayak clear boat">
+            <h4>Crystal Kayaking</h4><p></p>
+          </article>
+          <article class="card" data-card data-text="sunset cruise sunset boat">
+            <h4>Sunset Cruise</h4><p></p>
+          </article>
+          <article class="card" data-card data-text="banana boat ride">
+            <h4>Banana Boat</h4><p></p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LAND -->
+  <section class="section" id="land" data-section>
+    <div class="sectionhead">
+      <h3>🏞 Land Excursions</h3>
+      <p class="hint">Hikes + adventure</p>
+    </div>
+
+    <div class="block">
+      <img class="banner" src="land.png" alt="Land excursion" onerror="this.style.display='none';" />
+      <div class="content">
+        <div class="grid">
+          <article class="card" data-card data-text="hiking mount luho highest peak 30 minute hike">
+            <h4>Hiking</h4>
+            <p>Mount Luho offers the highest peak of the island with a ~30 minute hike.</p>
+          </article>
+          <article class="card" data-card data-text="ATV atving buggy cars terrain">
+            <h4>ATVing</h4>
+            <p>ATV or buggy cars available, through various terrain.</p>
+          </article>
+          <article class="card" data-card data-text="ziplining zipline">
+            <h4>Ziplining</h4><p></p>
+          </article>
+          <article class="card" data-card data-text="cliff jumping">
+            <h4>Cliff Jumping</h4><p></p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ISLAND HOPPING -->
+  <section class="section" id="island-hopping" data-section>
+    <div class="sectionhead">
+      <h3>⛵ Island Hopping</h3>
+      <p class="hint">Half-day boat excursion</p>
+    </div>
+
+    <div class="block">
+      <img class="banner" src="island-hopping.png" alt="Island hopping boats" onerror="this.style.display='none';" />
+      <div class="content">
+        <article class="card" data-card data-text="island hopping half day 4 hour boat boodle lunch islands beaches breathtaking views">
+          <h4>What to expect</h4>
+          <p>
+            This is usually a half day (4 hour) excursion that travels by boat. Excursion can include boodle lunch and stops at popular islands and beaches.
+            Each location offers unique experiences and breathtaking views—ensuring an unforgettable day of exploration and adventure.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPAS -->
+  <section class="section" id="spas" data-section>
+    <div class="sectionhead">
+      <h3>💆 Spas</h3>
+      <p class="hint">Massage + relaxation</p>
+    </div>
+
+    <div class="block">
+      <img class="banner" src="spa.png" alt="Spa" onerror="this.style.display='none';" />
+      <div class="content">
+        <article class="card" data-card data-text="chi spa shangri-la massages body scrubs relaxing moments">
+          <h4>Chi Spa (Shangri-La)</h4>
+          <p>Enjoy massages, body scrubs, and relaxing moments at Shangri-La’s Chi Spa.</p>
+        </article>
+
+        <div class="note" data-card data-text="kabayan spa sawadee bella isa mandala spa">
+          Other spas on the island (beyond the resort): <strong>Kabayan Spa</strong>, <strong>Sawadee</strong>, <strong>Bella Isa</strong>, <strong>Mandala Spa</strong>.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOD -->
+  <section class="section" id="food" data-section>
+    <div class="sectionhead">
+      <h3>🍽 Food & Drink</h3>
+      <p class="hint">Fine dining to casual favorites</p>
+    </div>
+
+    <div class="block">
+      <img class="banner" src="food.png" alt="Food" onerror="this.style.display='none';" />
+      <div class="content">
+        <div class="grid">
+          <article class="card" data-card data-text="fine dining shangri-la rima mediterranean sirena seafood vintana asian">
+            <h4>Fine Dining at the Shangri-La</h4>
+            <p>Rima Mediterranean • Sirena Seafood • Vintana Asian</p>
+          </article>
+          <article class="card" data-card data-text="food with a view mayas true home nagisa">
+            <h4>Food with a View</h4>
+            <p>Mayas • True Home • Nagisa</p>
+          </article>
+          <article class="card" data-card data-text="local favorites pig out bistro spice bird los indios">
+            <h4>Local Favorites</h4>
+            <p>The Pig Out Bistro • Spice Bird • Los Indios</p>
+          </article>
+          <article class="card" data-card data-text="cafes sunny side lemoni cha cha’s">
+            <h4>Cafes</h4>
+            <p>Sunny Side • Lemoni • Cha Cha’s</p>
+          </article>
+          <article class="card" data-card data-text="personal favorites sunnyside the district rooftop bulabar black attic mama’s fish house">
+            <h4>Personal Favorites</h4>
+            <p>Sunny Side • The District Rooftop • Bulabar • Black Attic • Mama’s Fish House</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOPPING -->
+  <section class="section" id="shopping" data-section>
+    <div class="sectionhead">
+      <h3>🛍 Shopping</h3>
+      <p class="hint">D’Mall</p>
+    </div>
+
+    <div class="block">
+      <img class="banner" src="shopping.png" alt="Shopping" onerror="this.style.display='none';" />
+      <div class="content">
+        <article class="card" data-card data-text="d’mall shopping dining center open air market stalls clothes souvenirs travel items">
+          <h4>D’Mall</h4>
+          <p>
+            D’Mall is the main shopping and dining center on Boracay. Its open-air design and a great number of stalls resembles a market.
+            You can find clothes, souvenirs, and travel items in this center.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section" id="services" data-section>
+    <div class="sectionhead">
+      <h3>🧺 Services</h3>
+      <p class="hint">Quick essentials</p>
+    </div>
+
+    <div class="block">
+      <img class="banner" src="services.png" alt="Services" onerror="this.style.display='none';" />
+      <div class="content">
+        <div class="grid">
+          <article class="card" data-card data-text="barbershop padrino 350 pesos gentleman’s cut">
+            <h4>Barbershop</h4>
+            <p>Padrino — ₱350 (~$6) for a gentleman’s cut.</p>
+          </article>
+          <article class="card" data-card data-text="laundry same day pick up drop off a-kon laundry 500 pesos per load">
+            <h4>Laundry (Same Day Pick Up/Drop Off)</h4>
+            <p>A-Kon Laundry — ~₱500 (&lt;$10) per load.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Made for our wedding week • Last updated: <span id="updated"></span>
+  </footer>
+</main>
+
+<script>
+  // Last updated date
+  document.getElementById("updated").textContent =
+    new Date().toLocaleDateString(undefined, { year:"numeric", month:"long", day:"numeric" });
+
+  // Search: hides cards + whole sections when empty
+  const q = document.getElementById("q");
+  const sections = Array.from(document.querySelectorAll("[data-section]"));
+
+  function applySearch() {
+    const term = q.value.trim().toLowerCase();
+
+    sections.forEach(section => {
+      const cards = Array.from(section.querySelectorAll("[data-card], [data-card] *")).length
+        ? Array.from(section.querySelectorAll("[data-card]"))
+        : [];
+
+      // If no cards in section (overview), search against innerText
+      if (cards.length === 0) {
+        const text = section.innerText.toLowerCase();
+        section.classList.toggle("hidden", term && !text.includes(term));
+        return;
+      }
+
+      let anyVisible = false;
+      cards.forEach(card => {
+        const text = ((card.getAttribute("data-text") || "") + " " + card.innerText).toLowerCase();
+        const show = !term || text.includes(term);
+        card.classList.toggle("hidden", !show);
+        if (show) anyVisible = true;
+      });
+
+      section.classList.toggle("hidden", !!term && !anyVisible);
+    });
+  }
+
+  q.addEventListener("input", applySearch);
+</script>
 </body>
 </html>
