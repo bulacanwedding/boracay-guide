@@ -39,14 +39,14 @@
     }
 
     .topbar{
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 14px 16px 10px;
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap: 12px;
-    }
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 12px 16px 8px;
+  display:flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 
     .brand h1{
       margin:0;
@@ -235,8 +235,9 @@
       .grid{ grid-template-columns: 1fr 1fr; }
       .hero img{ aspect-ratio: 16 / 6; }
       .banner{ aspect-ratio: 16 / 5; }
-      .search{ min-width: 420px; }
-    }
+      .search{
+  width: 100%;
+}
 
     /* Search results (hides entire sections if no visible cards inside) */
     .hidden{ display:none !important; }
@@ -247,9 +248,9 @@
 <header>
   <div class="topbar">
     <div class="brand">
-      <h1>Boracay Travel Guide</h1>
-      <p>Beaches • Excursions • Spas • Food • Shopping • Services</p>
-    </div>
+  <h1>Boracay Travel Guide</h1>
+</div>
+
 
     <div class="search" role="search" aria-label="Search">
       🔎 <input id="q" type="search" placeholder="Search: beach, snorkeling, ATV, D’Mall…" autocomplete="off" />
