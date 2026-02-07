@@ -8,35 +8,53 @@
 
   <style>
     :root{
-      --bg: #fbfaf8;
-      --card: #ffffff;
-      --text: #1a1a1a;
-      --muted: #6b6b6b;
-      --line: #e9e4dc;
-      --shadow: 0 10px 30px rgba(0,0,0,.06);
-      --radius: 18px;
-      --max: 920px;
-    }
+  /* Base */
+  --bg: #fbfbfa;
+  --card: #ffffff;
+  --text: #1f1f1f;
+  --muted: #6f6f6f;
+  --line: rgba(31,31,31,.08);
+
+  /* Wedding accents */
+  --dusty-blue: #6f8fa6;
+  --sage: #8fa79a;
+  --blush: #e7c3c7;
+
+  /* Used accents (keep minimal) */
+  --accent: var(--dusty-blue);
+  --accent-soft: rgba(111,143,166,.12);
+  --sage-soft: rgba(143,167,154,.14);
+  --blush-soft: rgba(231,195,199,.16);
+
+  --shadow: 0 16px 40px rgba(0,0,0,.06);
+  --radius: 18px;
+  --max: 920px;
+}
+
 
     *{ box-sizing:border-box; }
     html{ scroll-behavior:smooth; }
     body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.45;
-    }
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: linear-gradient(180deg, var(--bg), #f7f7f6);
+  color: var(--text);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
 
     /* Sticky Header */
     header{
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: blur(10px);
-      background: rgba(251,250,248,.85);
-      border-bottom: 1px solid var(--line);
-    }
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(10px);
+  background: rgba(251,251,250,.78);
+  border-bottom: 1px solid var(--line);
+}
+
 
 .topbar{
   max-width: var(--max);
@@ -49,10 +67,12 @@
 
 
     .brand h1{
-      margin:0;
-      font-size: 18px;
-      letter-spacing: .2px;
-    }
+  margin:0;
+  font-size: 17px;
+  letter-spacing: .4px;
+  font-weight: 650;
+}
+
     .brand p{
       margin: 4px 0 0;
       color: var(--muted);
@@ -81,19 +101,30 @@
 }
 nav::-webkit-scrollbar{ display:none; }
 
-    nav a{
-      text-decoration:none;
-      font-size: 13px;
-      color: var(--text);
-      padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.60);
-      white-space: nowrap;
+   nav a{
+  text-decoration:none;
+  font-size: 13px;
+  color: rgba(31,31,31,.88);
+  padding: 9px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.72);
 
-      flex: 0 0 auto;
-      scroll-snap-align: start;
-    }
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+}
+
+nav a:hover{
+  border-color: rgba(111,143,166,.35);
+  background: rgba(111,143,166,.08);
+}
+
+nav a.is-active{
+  border-color: rgba(111,143,166,.55);
+  background: var(--accent-soft);
+  color: rgba(31,31,31,.92);
+}
+
     nav a:hover{ border-color: #d7d0c6; }
 
     /* Layout */
@@ -200,22 +231,26 @@ nav::-webkit-scrollbar{ display:none; }
     }
 
     .card{
-      border: 1px solid var(--line);
-      background: var(--card);
-      border-radius: var(--radius);
-      padding: 14px 14px 12px;
-      box-shadow: 0 2px 12px rgba(0,0,0,.04);
-    }
-    .card h4{
-      margin:0 0 6px;
-      font-size: 15px;
-    }
-    .card p{
-      margin:0;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.35;
-    }
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.92);
+  border-radius: var(--radius);
+  padding: 14px 14px 13px;
+  box-shadow: 0 10px 26px rgba(0,0,0,.04);
+}
+
+   .card h4{
+  margin:0 0 6px;
+  font-size: 15px;
+  font-weight: 650;
+  letter-spacing: .2px;
+}
+.card p{
+  margin:0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
 
     ul.clean{
       margin: 10px 0 0;
@@ -257,6 +292,51 @@ nav::-webkit-scrollbar{ display:none; }
 
     /* Search results (hides entire sections if no visible cards inside) */
     .hidden{ display:none !important; }
+
+      /* ===== Section Accent Lines (Elegant + Minimal) ===== */
+
+.sectionhead h3{
+  position: relative;
+  padding-left: 10px;
+}
+
+.sectionhead h3::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 16px;
+  border-radius: 999px;
+  background: var(--accent);
+  opacity: .75;
+}
+
+/* Optional: per-section color accents */
+#beaches .sectionhead h3::before{ background: var(--dusty-blue); }
+#underwater .sectionhead h3::before{ background: var(--sage); }
+#spas .sectionhead h3::before{ background: var(--blush); }
+#food .sectionhead h3::before{ background: var(--dusty-blue); }
+#shopping .sectionhead h3::before{ background: var(--sage); }
+#services .sectionhead h3::before{ background: var(--blush); }
+#transportation .sectionhead h3::before{ background: var(--dusty-blue); }
+
+      /* ===== Image Softening (Screenshots → Editorial) ===== */
+
+.hero img,
+.banner{
+  filter: saturate(0.96) contrast(0.98);
+}
+
+.block{
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.70);
+  border-radius: var(--radius);
+  overflow:hidden;
+  box-shadow: var(--shadow);
+}
+
   </style>
 </head>
 
