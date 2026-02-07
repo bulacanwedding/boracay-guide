@@ -207,36 +207,26 @@ nav a.is-active{
       box-shadow: 0 3px 14px rgba(0,0,0,.04);
     }
 
-    .banner{
-  width:100%;
-  aspect-ratio: 16 / 8;   /* slightly taller = less harsh crop */
+.banner{
+  width: 100%;
+  aspect-ratio: 16 / 8;
   object-fit: cover;
   object-position: center 50%;
 }
 
 /* ===== Banner Crop Control (Mobile-first) ===== */
+#beaches .banner{ object-position: center 70%; }
+#underwater .banner{ object-position: center 40%; }
+#spas .banner{ object-position: center 75%; }
+#transportation .banner{ object-position: center 30%; }
 
-/* Beaches – show more shoreline */
-#beaches .banner{
-  object-position: center 70%;
+/* Taller banners on phones (reduces harsh cropping) */
+@media (max-width: 520px){
+  .banner{ aspect-ratio: 4 / 3; }
 }
 
-/* Underwater – keep diver centered */
-#underwater .banner{
-  object-position: center 40%;
-}
 
-/* Spa – show beds + foreground */
-#spas .banner{
-  object-position: center 75%;
-}
-
-/* Transportation (e-trike) – show driver + road */
-#transportation .banner{
-  object-position: center 30%;
-}
-
-    }
+    
 
     .content{
       padding: 14px 14px 12px;
@@ -307,7 +297,7 @@ nav a.is-active{
       .grid{ grid-template-columns: 1fr 1fr; }
       .hero img{ aspect-ratio: 16 / 6; }
       .banner{ aspect-ratio: 16 / 5; }
-    
+    }
 
     /* Search results (hides entire sections if no visible cards inside) */
     .hidden{ display:none !important; }
@@ -364,6 +354,17 @@ nav a.is-active{
   font-weight: 300;
   letter-spacing: 2.2px;
   color: rgba(31,31,31,.85);
+}
+/* ===== Vogue Section Headers (final) ===== */
+.sectionhead h3{
+  font-family: "Cormorant Garamond", Georgia, serif;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 2.2px;
+  color: rgba(31,31,31,.85);
+  position: relative;
+  padding-left: 10px;
 }
 
 
@@ -782,7 +783,9 @@ nav a.is-active{
   <p>Wellness-focused spa set in a tranquil hillside location.</p>
   <a class="link" href="https://mandalaspaboracay.com/" target="_blank">More Details</a>
 </article>
-
+  </div>  <!-- end content -->
+    </div>    <!-- end block -->
+  </section>  <!-- end spas -->
 
 
 
@@ -931,7 +934,6 @@ nav a.is-active{
 
 
 
-  q.addEventListener("input", applySearch);
 </script>
 </body>
 </html>
