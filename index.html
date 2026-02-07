@@ -501,6 +501,69 @@ nav a.is-active{
 .hero{
   scroll-margin-top: var(--sticky-offset);
 }
+/* ===== Wedding Week Cards ===== */
+.wedding-week{
+  margin-top: 14px;
+}
+
+.eventgrid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.event{
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.92);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 10px 26px rgba(0,0,0,.04);
+}
+
+.event img{
+  width: 100%;
+  display: block;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center 50%;
+}
+
+.eventbody{
+  padding: 12px 14px 14px;
+}
+
+.eventkicker{
+  font-family: "Montserrat", system-ui, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1.6px;
+  font-size: 11px;
+  color: rgba(31,31,31,.55);
+  margin: 0 0 6px;
+}
+
+.eventtitle{
+  font-family: "Cormorant Garamond", Georgia, serif;
+  text-transform: uppercase;
+  letter-spacing: 2.2px;
+  font-weight: 300;
+  font-size: 15px;
+  margin: 0 0 6px;
+  color: rgba(31,31,31,.88);
+}
+
+.eventmeta{
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.eventmeta strong{ color: rgba(31,31,31,.8); }
+
+@media (min-width: 820px){
+  .eventgrid{ grid-template-columns: 1fr 1fr 1fr; }
+}
 
   </style>
 </head>
@@ -550,6 +613,61 @@ nav a.is-active{
       </p>
 
       <ul class="clean">
+        <div class="divider"></div>
+
+<div class="wedding-week">
+  <div class="sectionhead" style="margin-bottom:6px;">
+    <h3 style="font-size:15px;margin:0;">Wedding Week</h3>
+    <p class="hint" style="margin:0;">Key events</p>
+  </div>
+
+  <div class="eventgrid">
+    <!-- Welcome Party -->
+    <article class="event">
+      <img src="welcome.png" alt="Welcome Party" onerror="this.style.display='none';" />
+      <div class="eventbody">
+        <p class="eventkicker">Wednesday • March 4, 2026</p>
+        <h4 class="eventtitle">Welcome Party</h4>
+        <p class="eventmeta">
+          <strong>5:00 PM – 9:00 PM</strong><br>
+          Clubhouse Deck &amp; Andros, Discovery Boracay<br>
+          Attire: Beach Smart Casual
+        </p>
+      </div>
+    </article>
+
+    <!-- Wedding Day -->
+    <article class="event">
+      <img src="wedding.jpg" alt="Wedding Day" onerror="this.style.display='none';" />
+      <div class="eventbody">
+        <p class="eventkicker">Friday • March 6, 2026</p>
+        <h4 class="eventtitle">Wedding</h4>
+        <p class="eventmeta">
+          <strong>Ceremony 4:00 PM – 5:00 PM</strong> (Cocktail hour to follow)<br>
+          Alon Garden, Shangri-La Boracay<br><br>
+          <strong>Reception 6:00 PM – 10:00 PM</strong><br>
+          Sagana Ballroom, Shangri-La Boracay<br>
+          Attire: Formal Garden Cocktail or Formal Filipino
+        </p>
+      </div>
+    </article>
+
+    <!-- After Party -->
+    <article class="event">
+      <img src="afterparty.jpg" alt="After Party" onerror="this.style.display='none';" />
+      <div class="eventbody">
+        <p class="eventkicker">Friday • March 6, 2026</p>
+        <h4 class="eventtitle">After Party</h4>
+        <p class="eventmeta">
+          <strong>10:00 PM – 1:00 AM</strong><br>
+          Sirena Cliffside Restaurant, Shangri-La Boracay<br>
+          Feel free to stop by and continue the celebration — late-night appetizers &amp; drinks.
+        </p>
+      </div>
+    </article>
+  </div>
+</div>
+
         <li><strong>Station 1:</strong> luxury resorts, pristine beaches, restaurants</li>
         <li><strong>Station 2:</strong> mid-range hotels, restaurants, nightlife, D’Mall shopping center</li>
         <li><strong>Station 3:</strong> affordable accommodations, nature, tranquil</li>
