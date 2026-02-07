@@ -488,6 +488,19 @@ nav a.is-active{
   opacity: .75;
 }
 
+/* Ensure anchored sections aren't hidden behind the sticky header */
+:root{
+  --sticky-offset: 120px; /* adjust if needed */
+}
+
+.section{
+  scroll-margin-top: var(--sticky-offset);
+}
+
+/* Also helps if the anchor lands on the hero/other blocks */
+.hero{
+  scroll-margin-top: var(--sticky-offset);
+}
 
   </style>
 </head>
