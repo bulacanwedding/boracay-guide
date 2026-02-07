@@ -6,6 +6,7 @@
   <title>Boracay Travel Guide</title>
   <meta name="description" content="Destination wedding Boracay travel guide: beaches, activities, spas, food, shopping, and services." />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Allura&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
   <style>
     :root{
@@ -102,14 +103,18 @@
 }
 nav::-webkit-scrollbar{ display:none; }
 
-   nav a{
-  text-decoration:none;
-  font-size: 13px;
-  color: rgba(31,31,31,.88);
-  padding: 9px 12px;
+  nav a{
+  font-family: "Montserrat", system-ui, sans-serif;
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 1.4px;
+  font-weight: 400;
+
+  color: rgba(31,31,31,.85);
+  padding: 9px 14px;
   border-radius: 999px;
   border: 1px solid var(--line);
-  background: rgba(255,255,255,.72);
+  background: rgba(255,255,255,.7);
 
   flex: 0 0 auto;
   scroll-snap-align: start;
@@ -121,10 +126,10 @@ nav a:hover{
 }
 
 nav a.is-active{
-  border-color: rgba(111,143,166,.55);
   background: var(--accent-soft);
-  color: rgba(31,31,31,.92);
+  border-color: rgba(111,143,166,.5);
 }
+
 
     nav a:hover{ border-color: #d7d0c6; }
 
@@ -178,11 +183,15 @@ nav a.is-active{
       font-size: 16px;
       letter-spacing: .2px;
     }
-    .sectionhead .hint{
-      margin:0;
-      color: var(--muted);
-      font-size: 12px;
-    }
+   .sectionhead .hint{
+  font-family: "Montserrat", system-ui, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1.6px;
+  font-size: 10px;
+  font-weight: 400;
+  color: rgba(31,31,31,.5);
+}
+
 
     .block{
       border: 1px solid var(--line);
@@ -193,31 +202,34 @@ nav a.is-active{
     }
 
     .banner{
-      width:100%;
-      display:block;
-      aspect-ratio: 16 / 6;
-      object-fit: cover;
-    /* Fine-tune banner crops per section (mobile-friendly) */
-
-/* Beaches – show more bottom */
-#beaches .banner{
-  object-position: center 65%;
+  width:100%;
+  aspect-ratio: 16 / 8;   /* slightly taller = less harsh crop */
+  object-fit: cover;
+  object-position: center 50%;
 }
 
-/* Spa – show more bottom */
-#spas .banner{
+/* ===== Banner Crop Control (Mobile-first) ===== */
+
+/* Beaches – show more shoreline */
+#beaches .banner{
   object-position: center 70%;
 }
 
-/* Underwater excursions – show more top */
+/* Underwater – keep diver centered */
 #underwater .banner{
-  object-position: center 35%;
+  object-position: center 40%;
 }
 
-/* E-trike / Transportation – show more top */
+/* Spa – show beds + foreground */
+#spas .banner{
+  object-position: center 75%;
+}
+
+/* Transportation (e-trike) – show driver + road */
 #transportation .banner{
   object-position: center 30%;
 }
+
     }
 
     .content{
@@ -337,16 +349,16 @@ nav a.is-active{
   overflow:hidden;
   box-shadow: var(--shadow);
 }
-/* ===== Serif Section Headers (Editorial Wedding Look) ===== */
+/* ===== Wedding Script Headers ===== */
 
 .sectionhead h3{
-  font-family: "Playfair Display", "Libre Baskerville", Georgia, serif;
-  font-weight: 500;
-  letter-spacing: .3px;
+  font-family: "Allura", cursive;
+  font-size: 26px;
+  font-weight: 400;
+  letter-spacing: .5px;
+  color: var(--text);
 }
-.sectionhead h3{
-  font-size: 17px;
-}
+
 /* ===== Soft Pastel Section Washes (Minimal + Elegant) ===== */
 
 #beaches .block{
@@ -409,6 +421,11 @@ nav a.is-active{
 }
 .block{
   padding-bottom: 4px;
+}
+@media (max-width: 520px){
+  .banner{
+    aspect-ratio: 4 / 3;   /* taller on phones */
+  }
 }
 
   </style>
