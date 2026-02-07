@@ -459,17 +459,34 @@ nav a.is-active{
 
 .card .link{
   display: inline-block;
-  margin-top: 6px;
-  font-size: 13px;
-  letter-spacing: .8px;
+  margin-top: 8px;
+
+  font-family: "Cormorant Garamond", Georgia, serif;
   text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 12px;
+  font-weight: 300;
+
   color: var(--accent);
   text-decoration: none;
+  position: relative;
+}
+
+.card .link::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-3px;
+  width: 28px;              /* short underline = chic */
+  height: 1px;
+  background: currentColor;
+  opacity: .6;
 }
 
 .card .link:hover{
-  text-decoration: underline;
+  opacity: .75;
 }
+
 
   </style>
 </head>
@@ -577,20 +594,20 @@ nav a.is-active{
   <h4>Helmet Diving</h4>
   <p>Walk freely on the sea floor with a constant air supply.</p>
   <p class="meta">~ $17 per person</p>
-  <a class="link" href="https://www.klook.com/en-US/activity/7943-helmet-dive-boracay/" target="_blank">View details</a>
+  <a class="link" href="https://www.klook.com/en-US/activity/7943-helmet-dive-boracay/" target="_blank">More Details</a>
 </article>
 
 <article class="card">
   <h4>Scuba Diving (Discover)</h4>
   <p>Guided experience with a PADI-certified divemaster.</p>
   <p class="meta">~ $60 per person</p>
-  <a class="link" href="https://www.klook.com/en-US/activity/39961-discover-scuba-diving-boracay/" target="_blank">View details</a>
+  <a class="link" href="https://www.klook.com/en-US/activity/39961-discover-scuba-diving-boracay/" target="_blank">More Details</a>
 </article>
 
 <article class="card">
   <h4>Free Diving & Snorkeling</h4>
   <p>No breathing apparatus. Great for confident swimmers.</p>
-  <a class="link" href="https://www.freediveboracay.com/" target="_blank">View details</a>
+  <a class="link" href="https://www.freediveboracay.com/" target="_blank">More Details</a>
 </article>
 
           <article class="card" data-card data-text="snorkeling crocodile island puka beach angel point best spots">
@@ -616,49 +633,49 @@ nav a.is-active{
 <article class="card">
   <h4>Kite Surfing</h4>
   <p>Best on windy days at Bulabog Beach.</p>
-  <a class="link" href="https://www.kiteboracay.com/" target="_blank">View details</a>
+  <a class="link" href="https://www.kiteboracay.com/" target="_blank">More Details</a>
 </article>
 
 <article class="card">
   <h4>Jet Ski</h4>
   <p>High-energy ride along White Beach.</p>
   <p class="meta">~ $37 per person</p>
-  <a class="link" href="https://www.klook.com/en-US/activity/7946-jet-ski-experience-boracay/" target="_blank">View details</a>
+  <a class="link" href="https://www.klook.com/en-US/activity/7946-jet-ski-experience-boracay/" target="_blank">More Details</a>
 </article>
 
 <article class="card">
   <h4>Stand-Up Paddleboarding (SUP)</h4>
   <p>Calm, scenic activity—best in the morning.</p>
   <p class="meta">~ $8 per person</p>
-  <a class="link" href="https://www.klook.com/en-US/activity/18063-stand-up-paddleboard-boracay/" target="_blank">View details</a>
+  <a class="link" href="https://www.klook.com/en-US/activity/18063-stand-up-paddleboard-boracay/" target="_blank">More Details</a>
 </article>
 
 <article class="card">
   <h4>Wakeboarding</h4>
   <p>Adventure ride across open water.</p>
   <p class="meta">~ $80 per person</p>
-  <a class="link" href="https://myboracayguide.com/boracay-activities/wake-boarding/" target="_blank">View details</a>
+  <a class="link" href="https://myboracayguide.com/boracay-activities/wake-boarding/" target="_blank">More Details</a>
 </article>
 
 <article class="card">
   <h4>Crystal Kayak</h4>
   <p>Clear-bottom kayak, popular for photos.</p>
   <p class="meta">~ $5 per person</p>
-  <a class="link" href="https://www.klook.com/en-US/activity/76528-crystal-kayak-boracay/" target="_blank">View details</a>
+  <a class="link" href="https://www.klook.com/en-US/activity/76528-crystal-kayak-boracay/" target="_blank">More Details</a>
 </article>
 
 <article class="card">
   <h4>Sunset Cruise</h4>
   <p>Relaxed sail during golden hour.</p>
   <p class="meta">~ $15 per person</p>
-  <a class="link" href="https://www.klook.com/en-US/activity/20590-sunset-cruise-boracay/" target="_blank">View details</a>
+  <a class="link" href="https://www.klook.com/en-US/activity/20590-sunset-cruise-boracay/" target="_blank">More Details</a>
 </article>
 
 <article class="card">
   <h4>Banana Boat</h4>
   <p>Fun group ride along the shore.</p>
   <p class="meta">~ $46 per person</p>
-  <a class="link" href="https://www.klook.com/en-US/activity/9282-banana-boat-ride-boracay/" target="_blank">View details</a>
+  <a class="link" href="https://www.klook.com/en-US/activity/9282-banana-boat-ride-boracay/" target="_blank">More Details</a>
 </article>
 
         </div>
@@ -685,14 +702,14 @@ nav a.is-active{
   <h4>ATV / Buggy Ride</h4>
   <p>Off-road ride through scenic terrain.</p>
   <p class="meta">~ $12 per person</p>
-  <a class="link" href="https://www.klook.com/en-US/activity/66819-boracay-atv-buggy-ride/" target="_blank">View details</a>
+  <a class="link" href="https://www.klook.com/en-US/activity/66819-boracay-atv-buggy-ride/" target="_blank">More Details</a>
 </article>
 
 <article class="card">
   <h4>Biplane + ATV Experience</h4>
   <p>Combination aerial view and land adventure.</p>
   <p class="meta">~ $75 per person</p>
-  <a class="link" href="https://www.klook.com/en-US/activity/75079-atv-mainland-boracay/" target="_blank">View details</a>
+  <a class="link" href="https://www.klook.com/en-US/activity/75079-atv-mainland-boracay/" target="_blank">More Details</a>
 </article>
 
           <article class="card" data-card data-text="cliff jumping">
@@ -719,7 +736,7 @@ nav a.is-active{
     Boat excursion with stops at nearby islands and beaches.
     May include boodle-style lunch.
   </p>
-  <a class="link" href="https://www.klook.com/en-US/activity/1025-island-hopping-boracay/" target="_blank">View details</a>
+  <a class="link" href="https://www.klook.com/en-US/activity/1025-island-hopping-boracay/" target="_blank">More Details</a>
 </article>
 
       </div>
@@ -739,31 +756,31 @@ nav a.is-active{
   <article class="card">
   <h4>Chi, The Spa (Shangri-La)</h4>
   <p>Luxury massages and body treatments within the resort.</p>
-  <a class="link" href="https://www.shangri-la.com/boracay/boracayresort/chi-the-spa/" target="_blank">View details</a>
+  <a class="link" href="https://www.shangri-la.com/boracay/boracayresort/chi-the-spa/" target="_blank">More Details</a>
 </article>
 
 <article class="card">
   <h4>Kabayan Spa</h4>
   <p>Popular local spa offering traditional massages.</p>
-  <a class="link" href="https://kabayanspa.com/" target="_blank">View details</a>
+  <a class="link" href="https://kabayanspa.com/" target="_blank">More Details</a>
 </article>
 
 <article class="card">
   <h4>Sawadee Massage & Spa</h4>
   <p>Affordable Thai-style massage treatments.</p>
-  <a class="link" href="https://10000cards.com/card/sawadee-massage-&-spa" target="_blank">View details</a>
+  <a class="link" href="https://10000cards.com/card/sawadee-massage-&-spa" target="_blank">More Details</a>
 </article>
 
 <article class="card">
   <h4>Bella Isa Spa</h4>
   <p>Relaxing ambiance with a range of massage services.</p>
-  <a class="link" href="https://bellaisaspa.com/" target="_blank">View details</a>
+  <a class="link" href="https://bellaisaspa.com/" target="_blank">More Details</a>
 </article>
 
 <article class="card">
   <h4>Mandala Spa</h4>
   <p>Wellness-focused spa set in a tranquil hillside location.</p>
-  <a class="link" href="https://mandalaspaboracay.com/" target="_blank">View details</a>
+  <a class="link" href="https://mandalaspaboracay.com/" target="_blank">More Details</a>
 </article>
 
 
